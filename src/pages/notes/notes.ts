@@ -21,6 +21,7 @@ import { Storage } from '@ionic/storage';
 export class NotesPage {
 
   notes : any;
+  origData : any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events, private storage: Storage, private modal: ModalController) {
     this.notes = this.getNotes();
@@ -35,14 +36,16 @@ export class NotesPage {
   }
 
   getNotes(){
-    var result=[],val;
+    var result=[],val,photo;
     this.storage.forEach((value, key, index) => {
-      console.log(value['fav']);
+      //console.log(value['fav']);
         val = value['value']; 
-        result.push({ key, val });
+        photo = value['photo'];
+        result.push({ key, val , photo });
       
-      console.log(result);
+      
     });
+    console.log(result);
     return result;
   }
 
@@ -72,18 +75,23 @@ export class NotesPage {
     const modalSettings: ModalOptions = {
       enableBackdropDismiss: false
     };
-    
+    this.origData = note;
+    console.log("opennote: ",note)
     const editModal:Modal = this.modal.create('ModalPage',{data:note}, modalSettings);
     editModal.present();
 
-    editModal.onDidDismiss((newData)=>{
+    editModal.onWillDismiss((newData)=>{
       console.log(newData);
       console.log(newData['key']);
       console.log(newData['val']);
-      this.storage.set(newData['key'],{'value':newData['val'],'fav':false});
-      location.reload();
+      this.storage.remove(note['key']);
+      this.storage.set(newData['key'],{'value':newData['val'],'fav':false, 'photo': note['photo']});
+      
     })
 
+    editModal.onDidDismiss((newData)=>{
+      location.reload();
+    });
   }
 
 }

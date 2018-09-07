@@ -26,19 +26,20 @@ export class NotePage {
   saveNote(){
     console.log('Storage driver ', this.storage.driver);
     
-    this.storage.set(this.title,{'value':this.text,'fav':false});
+    this.storage.set(this.title,{'value':this.text,'fav':false,'photo':this.photo});
     console.log('save');
     this.navCtrl.pop();
+    location.reload();
   }
 
   takePhoto(){
     const options: CameraOptions = {
       quality: 70,
-      destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
     }
-
+    
     this.camera.getPicture(options).then((imageData) => {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64 (DATA_URL):
@@ -46,6 +47,6 @@ export class NotePage {
      }, (err) => {
       // Handle error
      });
-    
+    //this.photo = "hola";
   }
 }

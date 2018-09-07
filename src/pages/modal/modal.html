@@ -9,7 +9,7 @@
   <ion-navbar>
     <ion-title>Editar Nota</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="takePhoto()">
         <ion-icon name="image"></ion-icon>
       </button>
       <button ion-button icon-only (click)="updateNote()">
@@ -35,6 +35,10 @@
     
         <ion-item>
           <ion-textarea [(ngModel)]="text" placeholder="Texto"></ion-textarea>
+        </ion-item>
+
+        <ion-item *ngIf="hasPhoto">
+          <p><img src="{{ photo }}"></p>
         </ion-item>
     
       </ion-list>
