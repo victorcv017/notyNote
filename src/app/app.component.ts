@@ -25,7 +25,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Notas', component: NotesPage, icon: "document"},
-      { title: 'Favoritas', component: FavoritesPage, icon: "star"}
+      { title: 'Favoritas', component: FavoritesPage, icon: "heart"}
     ];
 
     events.subscribe('show', (value) => {

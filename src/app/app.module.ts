@@ -9,16 +9,19 @@ import { NotesPage } from '../pages/notes/notes';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { NotePage } from '../pages/note/note';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 @NgModule({
   declarations: [
     MyApp,
     NotesPage,
     FavoritesPage,
-    NotePage
+    NotePage,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

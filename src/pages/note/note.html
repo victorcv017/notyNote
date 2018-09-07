@@ -11,7 +11,7 @@
       <button ion-button icon-only>
         <ion-icon name="image"></ion-icon>
       </button>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="saveNote()">
         <ion-icon name="cloud-upload"></ion-icon>
       </button>
       <button ion-button icon-only>
@@ -27,11 +27,11 @@
 
     <ion-item>
       <ion-label stacked>Título</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input [(ngModel)]="title" type="text"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-textarea placeholder="Texto"></ion-textarea>
+      <ion-textarea [(ngModel)]="text" placeholder="Texto"></ion-textarea>
     </ion-item>
 
   </ion-list>

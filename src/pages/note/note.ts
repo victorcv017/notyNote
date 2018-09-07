@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component} from '@angular/core';
+import { IonicPage, NavController, NavParams} from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the NotePage page.
@@ -15,6 +16,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class NotePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  title:string;
+  text:string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+  }
+
+  saveNote(){
+    this.storage.set(this.title,{'value':this.text,'fav':false});
+    console.log('save');
+    this.navCtrl.pop();
   }
 }

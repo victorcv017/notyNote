@@ -9,11 +9,29 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Favoritos</ion-title>
+    <ion-title>Favoritas</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-list *ngFor="let note of notes">
+    <ion-item-sliding #item>
+      <ion-item>
+        <h2>{{note.key}}</h2>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button (click)="unfavorite(item)">
+          <ion-icon name="heart-outline"></ion-icon>
+          Quitar
+        </button>
+      </ion-item-options>
+      <ion-item-options side="right">
+        <button ion-button (click)="delete(item)" color="danger">
+          <ion-icon name="trash"></ion-icon>
+          Borrar
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
