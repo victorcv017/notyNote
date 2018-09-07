@@ -18,7 +18,7 @@
   <ion-list *ngFor="let note of notes">
     <ion-item-sliding #item>
       <ion-item>
-        <h2>{{note.key}}</h2>
+        <button ion-button (click)="openNote(note)">{{note.key}}</button>
       </ion-item>
       <ion-item-options side="left">
         <button ion-button (click)="favorite(item)">

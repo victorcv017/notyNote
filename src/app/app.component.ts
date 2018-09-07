@@ -15,6 +15,8 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = NotesPage;
+ 
+
 
 
   pages: Array<{title: string, component: any, icon : any}>;
