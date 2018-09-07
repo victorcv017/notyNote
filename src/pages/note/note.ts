@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { NotesPage } from '../notes/notes';
 /**
  * Generated class for the NotePage page.
  *
@@ -29,7 +30,8 @@ export class NotePage {
     this.storage.set(this.title,{'value':this.text,'fav':false,'photo':this.photo});
     console.log('save');
     this.navCtrl.pop();
-    location.reload();
+    //location.reload();
+    this.navCtrl.setRoot(NotesPage);
   }
 
   takePhoto(){
