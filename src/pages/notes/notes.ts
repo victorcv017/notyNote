@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events, ModalController, Modal, ModalOptions } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 
 

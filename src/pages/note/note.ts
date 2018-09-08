@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { NotesPage } from '../notes/notes';
+import { SocialSharing } from '@ionic-native/social-sharing';
 /**
  * Generated class for the NotePage page.
  *
@@ -21,7 +22,7 @@ export class NotePage {
   text:string;
   photo:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private camera: Camera) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private camera: Camera,private socialSharing: SocialSharing) {
   }
 
   saveNote(){
@@ -50,5 +51,8 @@ export class NotePage {
       // Handle error
      });
     //this.photo = "hola";
+  }
+  share(){
+    this.socialSharing.shareViaWhatsApp(this.text,this.photo);    
   }
 }

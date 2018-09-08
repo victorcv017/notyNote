@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavParams, ViewController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { SocialSharing } from '@ionic-native/social-sharing';
 /**
  * Generated class for the ModalPage page.
  *
@@ -21,7 +22,7 @@ export class ModalPage {
   origData:any[];
   photo : any;
   hasPhoto : boolean = false;
-  constructor(private navParams: NavParams, private view: ViewController,  private storage: Storage, private camera: Camera) {
+  constructor(private navParams: NavParams, private view: ViewController,  private storage: Storage, private camera: Camera,private socialSharing: SocialSharing) {
   }
 
 
@@ -71,5 +72,8 @@ export class ModalPage {
       // Handle error
     });
     //this.photo = "hola";
+  }
+  share(){
+    this.socialSharing.shareViaWhatsApp(this.text,this.photo);    
   }
 }

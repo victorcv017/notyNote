@@ -10,6 +10,7 @@ import { FavoritesPage } from '../pages/favorites/favorites';
 import { NotePage } from '../pages/note/note';
 
 import { IonicStorageModule } from '@ionic/storage';
+import { SocialSharing } from '@ionic-native/social-sharing';
 import { Camera } from '@ionic-native/camera';
 
 @NgModule({
@@ -34,6 +35,7 @@ import { Camera } from '@ionic-native/camera';
   providers: [
     StatusBar,
     SplashScreen,Camera,
+    SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
