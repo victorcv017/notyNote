@@ -7,6 +7,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { NotesPage } from '../pages/notes/notes';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { NotePage } from '../pages/note/note';
+import { ProfilePage } from '../pages/profile/profile';
+import { LoginPage } from '../pages/login/login';
+import { Facebook } from '@ionic-native/facebook';
 
 @Component({
   templateUrl: 'app.html'
@@ -14,20 +17,21 @@ import { NotePage } from '../pages/note/note';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = NotesPage;
+  rootPage: any = LoginPage;
  
 
 
 
   pages: Array<{title: string, component: any, icon : any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events, private fb : Facebook) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Notas', component: NotesPage, icon: "document"},
-      { title: 'Favoritas', component: FavoritesPage, icon: "heart"}
+      { title: 'Favoritas', component: FavoritesPage, icon: "heart"},
+      { title: 'Perfil', component: ProfilePage, icon: "person"},
     ];
 
     events.subscribe('show', (value) => {
@@ -58,6 +62,9 @@ export class MyApp {
     this.hiddenButton = false;
   }
 
-  
+  logout(){
+    this.fb.logout();
+    this.nav.setRoot(LoginPage);
+  }
   
 }

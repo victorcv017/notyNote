@@ -13,12 +13,18 @@ import { IonicStorageModule } from '@ionic/storage';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Camera } from '@ionic-native/camera';
 
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+import { ProfilePage } from '../pages/profile/profile';
+import { LoginPage } from '../pages/login/login';
+
 @NgModule({
   declarations: [
     MyApp,
     NotesPage,
     FavoritesPage,
     NotePage,
+    ProfilePage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -30,13 +36,16 @@ import { Camera } from '@ionic-native/camera';
     MyApp,
     NotesPage,
     FavoritesPage,
-    NotePage
+    NotePage,
+    ProfilePage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,Camera,
     SocialSharing,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Facebook
   ]
 })
 export class AppModule {}

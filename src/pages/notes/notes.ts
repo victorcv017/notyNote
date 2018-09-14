@@ -40,9 +40,12 @@ export class NotesPage {
     var result=[],val,photo;
     this.storage.forEach((value, key, index) => {
       //console.log(value['fav']);
-        val = value['value']; 
-        photo = value['photo'];
-        result.push({ key, val , photo });
+        if(key != 'userdatax1'){
+          val = value['value'];
+          photo = value['photo'];
+          result.push({ key, val, photo });
+        }
+        
       
       
     });
