@@ -16,6 +16,7 @@ import { Camera } from '@ionic-native/camera';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { ProfilePage } from '../pages/profile/profile';
 import { LoginPage } from '../pages/login/login';
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { LoginPage } from '../pages/login/login';
     StatusBar,
     SplashScreen,Camera,
     SocialSharing,
+    Push,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Facebook
   ]
