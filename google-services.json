@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "281256310979",
+    "firebase_url": "https://notynote-810de.firebaseio.com",
+    "project_id": "notynote-810de",
+    "storage_bucket": "notynote-810de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281256310979:android:e45272f72bbc510c",
+        "android_client_info": {
+          "package_name": "com.dev.notynote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "281256310979-t4raa2of0uk5i88ujr7mu38kfsfcq92g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcvyeFzRxmTtK0Sm9n7vt5IwB7YyliK9Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
