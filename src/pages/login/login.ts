@@ -17,11 +17,14 @@ import { ProfilePage } from '../profile/profile';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
+  error : any;
   userData = null;
-  error: any;
   constructor(private fb: Facebook, public events: Events, public navCtrl: NavController) {
-
+    events.subscribe('error', (value) => {
+      // user and time are the same arguments passed in `events.publish(user, time)`
+      console.log('Welcome');
+      this.error = value;
+    });
   }
   ionViewWillEnter() {
     this.events.publish('show', false);
@@ -50,7 +53,7 @@ export class LoginPage {
       })
       .catch((e) => {
         console.log('Error al iniciar sesión', e);
-        this.error = e;
+        //this.error = e;
       });
   }
 }

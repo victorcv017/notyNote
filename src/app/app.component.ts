@@ -19,7 +19,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = LoginPage;
- 
+  error : any ;
 
 
 
@@ -84,10 +84,12 @@ export class MyApp {
     const pushObject: PushObject = this.push.init(options);
 
 
-    pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification));
+    pushObject.on('notification').subscribe((notification: any) => { console.log('Received a notification', notification); this.error = "entre notif"; });
 
-    pushObject.on('registration').subscribe((registration: any) => console.log('Device registered', registration));
+    pushObject.on('registration').subscribe((registration: any) => { console.log('Device registered', registration); this.error = "entre regist";});
 
-    pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
+    pushObject.on('error').subscribe(error => { console.error('Error with Push plugin', error); this.error = "entre error";});
+
+    this.events.publish('error', this.error );
   }
 }
